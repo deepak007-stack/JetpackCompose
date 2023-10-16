@@ -126,19 +126,6 @@ fun Recomposition() {
     }
 }
 
-@Composable
-fun Recomposition1() {
-
-    var state by remember { mutableStateOf("0") }
-    Log.d("recompose", "before button")
-
-    FilledTonalButton(onClick = { state = Math.random().toString() }) {
-        Log.d("recompose", "Inside button")
-        Text(text = state)
-    }
-}
-
-
 @Preview(name = "Light Mode")
 @Preview(name = "Dark Mode", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
