@@ -74,7 +74,8 @@ fun MessageCard(msg: Message) {
         Spacer(modifier = Modifier.width(9.dp))
 
         val surfaceColor by animateColorAsState(
-            if (isExpanded) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface
+            if (isExpanded) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface,
+            label = ""
         )
 
         Column(modifier = Modifier.clickable { isExpanded = !isExpanded }) {
@@ -115,6 +116,18 @@ fun Conversation(messages: List<Message>) {
 
 @Composable
 fun Recomposition() {
+
+    var state by remember { mutableStateOf("0") }
+    Log.d("recompose", "before button")
+
+    FilledTonalButton(onClick = { state = Math.random().toString() }) {
+        Log.d("recompose", "Inside button")
+        Text(text = state)
+    }
+}
+
+@Composable
+fun Recomposition1() {
 
     var state by remember { mutableStateOf("0") }
     Log.d("recompose", "before button")
